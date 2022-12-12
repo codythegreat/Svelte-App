@@ -111,8 +111,14 @@
     padding: 16px;
     background: rgba(255, 255, 255, 0.8);
     color: #333;
-    font-size: 1.2rem;
     font-weight: bold;
+  }
+
+  @media (max-width: 768px) {
+    .artcard-text {
+      left: 0px;
+      right: 0px;
+    }
   }
 
   .copy-text {

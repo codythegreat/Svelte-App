@@ -1,52 +1,25 @@
 <script>
   import ArtCardContainer from "./lib/components/ArtCardContainer.svelte";
+  import Nav from "./lib/components/Nav.svelte";
 
-  let imageSets = [
-    [
-      {
-        src: "image3.png",
-        alt: "native american man standing atop a cliff with an eagle on his shoulder. pacific northwest. washington. --v 4 --ar 3:2 --q 2",
-        caption: "native american man standing atop a cliff with an eagle on his shoulder. pacific northwest. washington. --v 4 --ar 3:2 --q 2",
-      }
-    ],
-    [
-      {
-        src: "image4.png",
-        alt: "A calico cat surfing purple waves inspired by Katsushika Hokusai, sunset, beautiful, --v 4 --q 2 --ar 3:2",
-        caption: "A calico cat surfing purple waves inspired by Katsushika Hokusai, sunset, beautiful, --v 4 --q 2 --ar 3:2",
-      }
-    ],
-    [
-      {
-        src: "image5.png",
-        alt: "wheres waldo, layered paper art, diorama --v 4 --q 2 --ar 1:1",
-        caption: "wheres waldo, layered paper art, diorama --v 4 --q 2 --ar 1:1",
-      }
-    ],
-    [
-      {
-        src: "image6.png",
-        alt: "character concept for an adventurer dog, backpack, goggles, super cute, 2d --v 4 --q 2 --ar 1:1",
-        caption: "character concept for an adventurer dog, backpack, goggles, super cute, 2d --v 4 --q 2 --ar 1:1",
-      },
-      {
-        src: "image7.png",
-        alt: "character concept for an adventurer dog, backpack, goggles, super cute, 2d --v 4 --q 2 --ar 1:1",
-        caption: "character concept for an adventurer dog, backpack, goggles, super cute, 2d --v 4 --q 2 --ar 1:1",
-      },
-      {
-        src: "image8.png",
-        alt: "character concept for an adventurer dog, backpack, goggles, super cute, 2d --v 4 --q 2 --ar 1:1",
-        caption: "character concept for an adventurer dog, backpack, goggles, super cute, 2d --v 4 --q 2 --ar 1:1",
-      },
-    ],
-  ];
+  import { filteredImages } from './lib/data/store.js';
+  console.log(filteredImages);
+
+  let images = []; // declare a local variable to hold the value of the filteredImages store
+
+  filteredImages.subscribe(value => {
+    images = value; // update the local variable with the latest value of the filteredImages store
+  });
+
+
+  console.log(images);
 </script>
 
 
 
 <main>
-    <ArtCardContainer {imageSets}></ArtCardContainer>
+    <Nav></Nav>
+    <ArtCardContainer imageSets={images}></ArtCardContainer>
 </main>
 
 <style>

@@ -21,4 +21,15 @@
     top: -8px;
     right: -8px;
   }
+  @media (max-width: 768px) {
+    div {
+        width: 20px;
+        height: 20px;
+        border: 3px solid #333;
+        border-radius: 50%;
+        top: 8px;
+        right: 8px;
+        line-height: 20px;
+    }
+  }
 </style>
